@@ -10,6 +10,7 @@ const Todos = () => {
   const [showComplete, setShowComplete] = useState(false);
   const { todos, fetchTodos } = useApi();
   const toggleCompletedTodos = () => setShowComplete((prev) => !prev);
+  const hasTodos = todos.length > 0;
 
   useEffect(() => {
     fetchTodos();
@@ -18,42 +19,50 @@ const Todos = () => {
   return (
     <Container>
       <Box mb={[4, 5, 6]}>
-        <Flex mx="auto" mb={4} justifyContent="center">
-          <Box mr={0}>
+        {hasTodos && (
+          <Flex mx="auto" mb={4} justifyContent="center">
+            <Box mr={0}>
+              <Pill
+                size="small"
+                type={showComplete ? 'ghost' : 'purple'}
+                onClick={toggleCompletedTodos}
+                as="button"
+              >
+                Pending
+              </Pill>
+            </Box>
             <Pill
-              size="small"
-              type={showComplete ? 'ghost' : 'purple'}
+              size="large"
+              type={showComplete ? 'purple' : 'ghost'}
               onClick={toggleCompletedTodos}
               as="button"
             >
-              Pending
+              Completed
             </Pill>
-          </Box>
-          <Pill
-            size="large"
-            type={showComplete ? 'purple' : 'ghost'}
-            onClick={toggleCompletedTodos}
-            as="button"
-          >
-            Completed
-          </Pill>
-        </Flex>
+          </Flex>
+        )}
         <Box width={[1, 0.8]} mx="auto">
-          {todos
-            .filter((todo: ITodo) => todo.isComplete === showComplete)
-            .map((todo: ITodo) => {
-              return (
-                <div key={todo.id} id={`todo-${todo.id}`}>
-                  <Todo
-                    id={todo.id}
-                    subject={todo.subject}
-                    category={todo.category}
-                    priority={todo.priority}
-                    isComplete={todo.isComplete}
-                  />
-                </div>
-              );
-            })}
+          {hasTodos ? (
+            todos
+              .filter((todo: ITodo) => todo.isComplete === showComplete)
+              .map((todo: ITodo) => {
+                return (
+                  <div key={todo.id} id={`todo-${todo.id}`}>
+                    <Todo
+                      id={todo.id}
+                      subject={todo.subject}
+                      category={todo.category}
+                      priority={todo.priority}
+                      isComplete={todo.isComplete}
+                    />
+                  </div>
+                );
+              })
+          ) : (
+            <Pill size="small" type="purple" as="pill">
+              You haven&apos;t created any todos yet &#10154; create one below 👇🏻
+            </Pill>
+          )}
         </Box>
       </Box>
     </Container>
