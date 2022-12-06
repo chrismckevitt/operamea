@@ -40,7 +40,7 @@ yarn dev
  ### Acceptance criteria
  - [x] Each task will be represented by a simple textdescription
  - [x] Depending on the type (completed vs pending) the task will be displayed on a different group
- - [x] Initially, this list will be empty
+ - [ ] Initially, this list will be empty
  
   ## User story 2
  ### Acceptance criteria
