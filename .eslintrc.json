@@ -1,3 +1,55 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    }
+  },
+  "rules": {
+    "import/prefer-default-export": 0,
+    "react/display-name": 0,
+    "react/require-default-props": 0,
+    "react/jsx-props-no-spreading": 0,
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "react/jsx-filename-extension": [
+      2,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    "no-shadow": "off",
+    "prettier/prettier": [
+      "warn",
+      {
+        "printWidth": 100,
+        "semi": true,
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": 2,
+    "@typescript-eslint/camelcase": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ]
+  }
 }
