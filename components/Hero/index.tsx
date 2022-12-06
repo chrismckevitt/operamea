@@ -22,8 +22,8 @@ const Hero = () => {
         <HeroText>OperaMea</HeroText>
         <Box my={2}>
           <Lede>
-            A small todos app built with <Link href="/">Next.js</Link> &amp;{' '}
-            <Link href="/">Typescript</Link> for NovaFori
+            A small todos app built with <Link href="https://nextjs.org/">Next.js</Link> &amp;{' '}
+            <Link href="https://www.typescriptlang.org/">Typescript</Link> for NovaFori
           </Lede>
         </Box>
       </Flex>
