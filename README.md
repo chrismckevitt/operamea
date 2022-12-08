@@ -58,7 +58,7 @@ yarn dev
  
  ### Packages used
  
- - styled-components — CSS-in-JS styling with access to compoent props for styling logic
+ - styled-components — CSS-in-JS styling with access to component props for styling logic
  - styled-system — utility functions that add style props to components
  - react-hook-form — removes unnecessary re-renders as form state changes
  
